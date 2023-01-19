@@ -21,7 +21,7 @@
 
 ```
 
-- Once you have added your db config as listed above , go to the src folder from your terminal and execute `npxsequelize dp:create`
+- Once you have added your db config as listed above , go to the src folder from your terminal and execute `npxsequelize dp:create` and then execute : `npx sequelize db:create`
 
 ## DB Design
   - Airplane Table
