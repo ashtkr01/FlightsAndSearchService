@@ -9,11 +9,11 @@ const create = async (req , res) => {
         return res.status(201).json({
             data: city,
             success: true,
-            message: "Successfully created the city ",
-            err: ""
+            message: "Successfully created the city",
+            err: {}
         });
     } catch (error) {
-        console.log("Error");
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
@@ -32,7 +32,7 @@ const destroy = async (req , res) => {
             data: response,
             success: true,
             message: "Successfully deleted a city ",
-            err: ""
+            err: {}
         });
     } catch (error) {
         console.log("Error");
@@ -53,10 +53,10 @@ const update = async (req , res) => {
             data: response,
             success: true,
             message: "Successfully updated a city ",
-            err: ""
+            err: {}
         });
     } catch (error) {
-        console.log("Error");
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
@@ -74,10 +74,10 @@ const get = async (req , res) => {
             data: response,
             success: true,
             message: "Successfully got a city ",
-            err: ""
+            err: {}
         });
     } catch (error) {
-        console.log("Error");
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
