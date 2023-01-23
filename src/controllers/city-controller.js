@@ -24,6 +24,27 @@ const create = async (req , res) => {
     }
 }
 
+//Create object:
+const createAll = async (req , res) => {
+    try {
+        const city = await cityService.createAllCity(req.body);
+        return res.status(201).json({
+            data:  city ,
+            success: true,
+            message: "Successfully created the All city",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to create the city ",
+            err: error
+        });
+    }
+}
+
 //DELETE. -> /city/:id
 const destroy = async (req , res) => {
     try {
@@ -35,7 +56,7 @@ const destroy = async (req , res) => {
             err: {}
         });
     } catch (error) {
-        console.log("Error");
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
@@ -112,5 +133,6 @@ module.exports = {
     destroy,
     update,
     get,
-    getAll
+    getAll,
+    createAll
 }
