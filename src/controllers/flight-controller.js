@@ -14,13 +14,13 @@ const create = async (req , res) => {
             departureTime: req.body.departureTime,
             price: req.body.price
         };
-        const flight = await flightService.createFlight(flightRequestData);
+        const flight = await flightService.create(flightRequestData);
         return res.status(SuccessCodes.CREATED).json({
             data: flight,
             success: true,
             err: {},
             message: 'successfully Created'
-        })
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
@@ -28,13 +28,33 @@ const create = async (req , res) => {
             success: false,
             err: error,
             message: 'Not able to create Flight'
-        })
+        });
+    }
+}
+
+const get = async (req , res) => {
+    try {
+        const response = await flightService.get(req.params.id);
+        return res.status(200).json({
+            data : response,
+            success : true,
+            err : {},
+            message : "Information is successfully fetched "
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success : false,
+            err : error,
+            message : "Not able to fetched single Flight"
+        });
     }
 }
 
 const getAll = async (req , res) => {
     try {
-        const response = await flightService.getAllFlightData(req.query);
+        const response = await flightService.getAll(req.query);
         return res.status(200).json({
             data : response,
             success : true,
@@ -52,7 +72,29 @@ const getAll = async (req , res) => {
     }
 }
 
+const destroy = async (req , res) => {
+    try {
+        const response = await flightService.destroy(req.params.id);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            message: "Successfully deleted a flight ",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to delete a flight ",
+            err: error
+        });
+    }
+}
+
 module.exports = {
     create,
-    getAll
+    getAll,
+    get,
+    destroy
 }
