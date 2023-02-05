@@ -5,7 +5,7 @@ const cityService = new CityService();
 
 const create = async (req , res) => {
     try {
-        const city = await cityService.createCity(req.body);
+        const city = await cityService.create(req.body);
         return res.status(201).json({
             data: city,
             success: true,
@@ -27,7 +27,7 @@ const create = async (req , res) => {
 //Create object:
 const createAll = async (req , res) => {
     try {
-        const city = await cityService.createAllCity(req.body);
+        const city = await cityService.createAll(req.body);
         return res.status(201).json({
             data:  city ,
             success: true,
@@ -39,7 +39,7 @@ const createAll = async (req , res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: "Not able to create the city ",
+            message: "Not able to create cities ",
             err: error
         });
     }
@@ -48,7 +48,7 @@ const createAll = async (req , res) => {
 //DELETE. -> /city/:id
 const destroy = async (req , res) => {
     try {
-        const response = await cityService.deleteCity(req.params.id);
+        const response = await cityService.delete(req.params.id);
         return res.status(200).json({
             data: response,
             success: true,
@@ -69,7 +69,7 @@ const destroy = async (req , res) => {
 //UPDATE -> city/:id -> req.body
 const update = async (req , res) => {
     try {
-        const response = await cityService.updateCity(req.params.id , req.body);
+        const response = await cityService.update(req.params.id , req.body);
         return res.status(200).json({
             data: response,
             success: true,
@@ -90,7 +90,7 @@ const update = async (req , res) => {
 //GET-> city/:id
 const get = async (req , res) => {
     try {
-        const response = await cityService.getCity(req.params.id);
+        const response = await cityService.get(req.params.id);
         return res.status(200).json({
             data: response,
             success: true,
@@ -110,7 +110,7 @@ const get = async (req , res) => {
 
 const getAll = async (req , res) => {
     try {
-        const cities = await cityService.getAllCities(req.query);
+        const cities = await cityService.getAll(req.query);
         return res.status(200).json({
             data: cities,
             success: true,

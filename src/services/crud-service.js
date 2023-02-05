@@ -33,7 +33,7 @@ class CrudService{
         }
     }
 
-    async gatAll(){
+    async getAll(){
         try {
             const response = await this.repository.getAll();
             return response;
