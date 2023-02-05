@@ -24,21 +24,6 @@ const setupAndStartServer = async () => {
         // if(process.env.SYNC_DB){
         //     db.sequelize.sync({alter: true}); 
         // }
-        
-        // const city = await City.findOne({
-        //     where : {
-        //         id: 20
-        //     }
-        // });
-        // const airports = await city.getAirports();
-
-        // // const newairport = await Airport.findOne({
-        // //     where:{
-        // //         id:5
-        // //     }
-        // // });
-        // // await city.addAirports(newairport);
-        // console.log(city , airports);
     });
 
 }
