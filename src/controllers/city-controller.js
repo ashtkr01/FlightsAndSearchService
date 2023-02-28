@@ -1,6 +1,6 @@
 const { CityService } = require('../services/index');
 
-//create object of CitySErvice:
+//create object of CityService:
 const cityService = new CityService();
 
 const create = async (req , res) => {

@@ -44,15 +44,6 @@ class FlightRepository extends CrudRepository{
         }
     }
 
-    // async getFlight(flightId){
-    //     try {
-    //         const flight = await Flights.findByPk(flightId);
-    //         return flight;
-    //     } catch (error) {
-    //         console.log("Something went wrong in repository");
-    //         throw {error};
-    //     }
-    // }
 
     async getAll(data){
         try {
